@@ -4,9 +4,5 @@
   "appFolders": [],
   "testFolders": [],
   "bcptTestFolders": [],
-  "environments": ["QA"],
-  "DeployToQA": {
-      "os": "windows-latest",
-      "shell": "powershell"
-  }
+  "environments": ["QA"]
 }
