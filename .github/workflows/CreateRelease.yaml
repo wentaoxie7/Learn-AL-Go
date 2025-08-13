@@ -70,9 +70,6 @@ jobs:
   CreateRelease:
     needs: [ ]
     runs-on: [ windows-latest ]
-    
-    env:
-      AUTHCONTEXT: ${{ secrets.QAAuthContext }}
 
     outputs:
       artifacts: ${{ steps.determineArtifactsForRelease.outputs.artifacts }}
