@@ -69,12 +69,6 @@ jobs:
         with:
           shell: powershell
           get: type,powerPlatformSolutionFolder,useGitSubmodules
-          
-      - name: Determine Deployment Environments
-        id: DetermineDeploymentEnvironments
-        uses: microsoft/AL-Go-Actions/DetermineDeploymentEnvironments@v7.2
-        with:
-          shell: powershell
 
       - name: Read submodules token
         id: ReadSubmodulesToken
@@ -146,6 +140,11 @@ jobs:
           shell: powershell
           getEnvironments: '*'
           type: 'CD'
+      
+      - name: Debug EnvironmentsMatrixJson
+        run: echo "${{ steps.DetermineDeploymentEnvironments.outputs.EnvironmentsMatrixJson }}"
+        shell: bash
+
 
   CheckForUpdates:
     needs: [ Initialization ]
