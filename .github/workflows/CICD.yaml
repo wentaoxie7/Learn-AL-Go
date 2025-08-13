@@ -266,7 +266,7 @@ jobs:
     needs: [ Initialization, Build, BuildPP ]
     if: (!cancelled()) && (needs.Build.result == 'success' || needs.Build.result == 'skipped') && (needs.BuildPP.result == 'success' || needs.BuildPP.result == 'skipped') && needs.Initialization.outputs.environmentCount > 0
     strategy: ${{ fromJson(needs.Initialization.outputs.environmentsMatrixJson) }}
-    runs-on: ${{ fromJson(matrix.os) }}
+    runs-on: ${{ matrix.os[0] }}
     name: Deploy to ${{ matrix.environment }}
     defaults:
       run:
